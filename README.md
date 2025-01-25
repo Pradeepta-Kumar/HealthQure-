@@ -1,3 +1,7 @@
+Hi everyone, this project is focused towards the self improvement of health on our own terms.
+The system aims at diagnosing the diseases, providing medications and suggesting the nearby hospitals based on the location given as input using the Machine learning models of Google's Gemini.
+The tech stack used here is Full-stack Next.JS 14 which is a react framework and MongoDB used as the database along with Next-Auth for authnetication and authorization.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -14,7 +18,7 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open https://health-qure.vercel.app/ with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
