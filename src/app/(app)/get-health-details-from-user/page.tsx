@@ -67,185 +67,202 @@ const HealthDetailsForm: React.FC = () => {
   };
 
   return (
-    <div className="flex bg-black justify-center items-center">
-      <div>
+    <div className="flex flex-col lg:flex-row bg-black justify-center items-center min-h-screen px-4 lg:px-8 py-8">
+      {/* Image Section */}
+      <div className="flex justify-center items-center w-full lg:w-1/2 mb-8 lg:mb-0">
         <img
           src="https://c8.alamy.com/comp/2M8HTYH/briefing-with-a-client-isolated-cartoon-vector-illustrations-marketing-agency-worker-talking-with-client-discussing-brand-promotion-professional-ad-2M8HTYH.jpg"
-          className="w-[500px] h-[500px] rounded"
+          className="w-[300px] sm:w-[400px] md:w-[500px] h-auto rounded-lg shadow-lg"
           alt="Health-Form-Image"
         />
       </div>
-      <div className="bg-black text-white w-[50%] border-gray-700 shadow-lg py-12 flex justify-center items-center">
-        <div>
-          <h1 className="font-semibold text-xl bg-white text-black py-2 px-3 mb-12">
-            Enter Your Health Details Here!
-          </h1>
-          <form onSubmit={handleSubmit}>
+
+      {/* Form Section */}
+      <div className="bg-gray-900 text-white w-full lg:w-1/2 border border-gray-800 shadow-lg p-6 lg:p-12 rounded-lg">
+        <h1 className="font-semibold text-xl lg:text-2xl bg-white text-black py-2 px-3 mb-8 text-center rounded">
+          Enter Your Health Details Here!
+        </h1>
+        <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6">
+          <div>
             <label htmlFor="email" className="font-bold text-lg">
               Email
-            </label>{" "}
-            <br />
+            </label>
             <input
               type="email"
               name="email"
               placeholder="Email"
               onChange={handleChange}
               required
-              className="w-full border border-gray-700 bg-transparent mb-6 py-2 px-4 mt-2"
+              className="w-full border border-gray-700 bg-transparent py-2 px-4 mt-2 rounded"
             />
-            <br />
+          </div>
+
+          <div>
             <label htmlFor="gender" className="font-bold text-lg">
               Gender
-            </label>{" "}
-            <br />
+            </label>
             <input
               type="text"
               name="gender"
               placeholder="Gender"
               onChange={handleChange}
               required
-              className="w-full border border-gray-700 bg-transparent  mb-6 py-2 px-4 mt-2"
-            />{" "}
-            <br />
-            <label htmlFor="age" className="font-bold text-lg">
-              Age
-            </label>{" "}
-            <br />
-            <input
-              type="number"
-              name="age"
-              placeholder="Age"
-              onChange={handleChange}
-              required
-              className="w-full border border-gray-700 bg-transparent  mb-6 py-2 px-4 mt-2"
-            />{" "}
-            <br />
-            <label htmlFor="pulseRate" className="font-bold text-lg">
-              Pulse Rate
-            </label>{" "}
-            <br />
-            <input
-              type="number"
-              name="pulseRate"
-              placeholder="Pulse Rate"
-              onChange={handleChange}
-              required
-              className="w-full border border-gray-700 bg-transparent  mb-6 py-2 px-4 mt-2"
-            />{" "}
-            <br />
+              className="w-full border border-gray-700 bg-transparent py-2 px-4 mt-2 rounded"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="age" className="font-bold text-lg">
+                Age
+              </label>
+              <input
+                type="number"
+                name="age"
+                placeholder="Age"
+                onChange={handleChange}
+                required
+                className="w-full border border-gray-700 bg-transparent py-2 px-4 mt-2 rounded"
+              />
+            </div>
+            <div>
+              <label htmlFor="pulseRate" className="font-bold text-lg">
+                Pulse Rate
+              </label>
+              <input
+                type="number"
+                name="pulseRate"
+                placeholder="Pulse Rate"
+                onChange={handleChange}
+                required
+                className="w-full border border-gray-700 bg-transparent py-2 px-4 mt-2 rounded"
+              />
+            </div>
+          </div>
+
+          <div>
             <label htmlFor="bloodPressure" className="font-bold text-lg">
               Blood Pressure
-            </label>{" "}
-            <br />
+            </label>
             <input
               type="text"
               name="bloodPressure"
               placeholder="Blood Pressure"
               onChange={handleChange}
               required
-              className="w-full border border-gray-700 bg-transparent  mb-6 py-2 px-4 mt-2"
-            />{" "}
-            <br />
-            <label htmlFor="respirationRate" className="font-bold text-lg">
-              Respiration Rate
-            </label>{" "}
-            <br />
-            <input
-              type="number"
-              name="respirationRate"
-              placeholder="Respiration Rate"
-              onChange={handleChange}
-              required
-              className="w-full border border-gray-700 bg-transparent  mb-6 py-2 px-4 mt-2"
-            />{" "}
-            <br />
-            <label htmlFor="bodyTemp" className="font-bold text-lg">
-              Body Temprature
-            </label>{" "}
-            <br />
-            <input
-              type="number"
-              name="bodyTemp"
-              placeholder="Body Temperature"
-              onChange={handleChange}
-              required
-              className="w-full border border-gray-700 bg-transparent  mb-6 py-2 px-4 mt-2"
-            />{" "}
-            <br />
+              className="w-full border border-gray-700 bg-transparent py-2 px-4 mt-2 rounded"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="respirationRate" className="font-bold text-lg">
+                Respiration Rate
+              </label>
+              <input
+                type="number"
+                name="respirationRate"
+                placeholder="Respiration Rate"
+                onChange={handleChange}
+                required
+                className="w-full border border-gray-700 bg-transparent py-2 px-4 mt-2 rounded"
+              />
+            </div>
+            <div>
+              <label htmlFor="bodyTemp" className="font-bold text-lg">
+                Body Temperature
+              </label>
+              <input
+                type="number"
+                name="bodyTemp"
+                placeholder="Body Temperature"
+                onChange={handleChange}
+                required
+                className="w-full border border-gray-700 bg-transparent py-2 px-4 mt-2 rounded"
+              />
+            </div>
+          </div>
+
+          <div>
             <label htmlFor="oxygenRate" className="font-bold text-lg">
               Oxygen Rate
-            </label>{" "}
-            <br />
+            </label>
             <input
               type="number"
               name="oxygenRate"
               placeholder="Oxygen Rate"
               onChange={handleChange}
               required
-              className="w-full border border-gray-700 bg-transparent  mb-6 py-2 px-4 mt-2"
-            />{" "}
-            <br />
-            <label htmlFor=" bloodGlucose" className="font-bold text-lg">
-              Blood Glucose Rate
-            </label>{" "}
-            <br />
+              className="w-full border border-gray-700 bg-transparent py-2 px-4 mt-2 rounded"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="bloodGlucose" className="font-bold text-lg">
+              Blood Glucose
+            </label>
             <input
               type="number"
               name="bloodGlucose"
               placeholder="Blood Glucose"
               onChange={handleChange}
               required
-              className="w-full border border-gray-700 bg-transparent  mb-6 py-2 px-4 mt-2"
-            />{" "}
-            <br />
+              className="w-full border border-gray-700 bg-transparent py-2 px-4 mt-2 rounded"
+            />
+          </div>
+
+          <div>
             <label htmlFor="weight" className="font-bold text-lg">
               Weight
-            </label>{" "}
-            <br />
+            </label>
             <input
               type="number"
               name="weight"
               placeholder="Weight"
               onChange={handleChange}
               required
-              className="w-full border border-gray-700 bg-transparent  mb-6 py-2 px-4 mt-2"
-            />{" "}
-            <br />
-            <label htmlFor="cholestrol" className="font-bold text-lg">
+              className="w-full border border-gray-700 bg-transparent py-2 px-4 mt-2 rounded"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="cholesterol" className="font-bold text-lg">
               Cholesterol
-            </label>{" "}
-            <br />
+            </label>
             <input
               type="text"
               name="cholesterol"
               placeholder="Cholesterol"
               onChange={handleChange}
               required
-              className="w-full border border-gray-700 bg-transparent  mb-6 py-2 px-4 mt-2"
-            />{" "}
-            <br />
-            <label htmlFor="cholestrol" className="font-bold text-lg">
+              className="w-full border border-gray-700 bg-transparent py-2 px-4 mt-2 rounded"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="location" className="font-bold text-lg">
               Location
-            </label>{" "}
-            <br />
+            </label>
             <input
               type="text"
               name="location"
-              placeholder="location"
+              placeholder="Location"
               onChange={handleChange}
               required
-              className="w-full border border-gray-700 bg-transparent  mb-6 py-2 px-4 mt-2"
-            />{" "}
-            <br />
-            <button
-              type="submit"
-              className="bg-white text-black font-semibold px-2 py-1"
-            >
-              Submit
-            </button>
-          </form>
-        </div>
-        {responseMessage && <p>{responseMessage}</p>}
+              className="w-full border border-gray-700 bg-transparent py-2 px-4 mt-2 rounded"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="bg-white text-black font-semibold px-4 py-2 rounded hover:bg-gray-300 transition-all duration-200"
+          >
+            Submit
+          </button>
+        </form>
+        {responseMessage && (
+          <p className="text-center mt-4 text-green-400">{responseMessage}</p>
+        )}
       </div>
     </div>
   );

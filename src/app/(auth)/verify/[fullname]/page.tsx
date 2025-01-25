@@ -13,13 +13,13 @@ import { verifySchema } from "../../../../schemas/VerifySchema";
 import { ApiResponse } from "@/types/ApiResponse";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios, { AxiosError } from "axios";
-import { Link, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { Form } from "../../../../components/ui/form";
 import { z } from "zod";
 
-const verifyAccount = () => {
+const VerifyAccount = () => {
   const router = useRouter();
   const params = useParams<{ email: string }>();
   const { toast } = useToast();
@@ -27,6 +27,7 @@ const verifyAccount = () => {
   const form = useForm<z.infer<typeof verifySchema>>({
     resolver: zodResolver(verifySchema),
   });
+
   const onSubmit = async (data: z.infer<typeof verifySchema>) => {
     try {
       const response = await axios.post("/api/verifyCode", {
@@ -43,31 +44,42 @@ const verifyAccount = () => {
       const axiosError = err as AxiosError<ApiResponse>;
       let errMsg = axiosError.response?.data.message;
       toast({
-        title: "Sign up failed",
-        description: errMsg,
+        title: "Verification failed",
+        description: errMsg || "An error occurred. Please try again.",
         variant: "destructive",
       });
     }
   };
+
   return (
-    <div className="flex justify-center items-center h-screen bg-black text-white">
-      <div className="w-full max-w-md p-8 space-y-8 bg-black rounded-lg shadow-md text-white border border-sm border-gray-900 shadow-lg">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white px-4">
+      <div className="w-full max-w-lg p-6 md:p-8 bg-black rounded-lg shadow-lg border border-gray-800">
         <div className="text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight lg:text-4xl mb-6">
+          <h1 className="text-3xl md:text-4xl font-extrabold mb-4">
             Verify Account
           </h1>
-          <p className="mb-4 font-semibold">Enter your secret code to <br />verify your account and get started!</p>
+          <p className="text-sm md:text-base font-semibold mb-6">
+            Enter your secret code to verify your account and get started!
+          </p>
         </div>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <FormField
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="space-y-6"
+          >
+            <FormField
               control={form.control}
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="font-bold text-xl">Email</FormLabel>
+                  <FormLabel className="text-sm md:text-base font-bold">
+                    Email
+                  </FormLabel>
                   <FormControl>
-                    <Input placeholder="user@example.com" {...field} />
+                    <Input
+                      placeholder="user@example.com"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -78,27 +90,30 @@ const verifyAccount = () => {
               name="code"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="font-bold text-xl">Code</FormLabel>
+                  <FormLabel className="text-sm md:text-base font-bold">
+                    Code
+                  </FormLabel>
                   <FormControl>
-                    <Input placeholder="XXXXXX" {...field} />
+                    <Input
+                      placeholder="XXXXXX"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button className="font-semibold text-lg bg-white text-black hover:bg-gray-400" type="submit">Submit</Button>
+            <Button
+              className="w-full text-sm md:text-base font-semibold bg-white text-black hover:bg-gray-400"
+              type="submit"
+            >
+              Submit
+            </Button>
           </form>
         </Form>
-        {/* <div className="text-center mt-4">
-          <p>
-            new to HealthQure+ ?
-            <Link href="/sign-up" className="text-blue-600 hover:text-blue:800">
-              Sign up for free
-            </Link>
-          </p>
-        </div> */}
       </div>
     </div>
   );
 };
-export default verifyAccount;
+
+export default VerifyAccount;

@@ -60,25 +60,26 @@ const Page = () => {
   };
 
   return (
-    <div className="flex justify-around bg-black mx-auto items-center">
-      <div className="flex justify-center items-center min-h-screen bg-black">
-      <div className="w-full max-w-md p-8 space-y-8 bg-black rounded-lg text-white border border-gray-900 shadow-lg">
+    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-black text-white">
+      <div className="flex flex-col items-center justify-center w-full max-w-md p-6 md:p-8 space-y-8 bg-black rounded-lg border border-gray-900 shadow-lg">
         <div className="text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-4">
+          <h1 className="text-3xl md:text-4xl font-extrabold mb-4">
             Welcome to HealthQure+
           </h1>
-          <p className="mb-4 text-sm font-semibold text-white">Sign up to keep your health on track</p>
+          <p className="mb-4 text-sm font-semibold">
+            Sign up to keep your health on track
+          </p>
         </div>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <FormField
               control={form.control}
               name="fullname"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Full name</FormLabel>
+                  <FormLabel>Full Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="fullname" {...field} />
+                    <Input placeholder="Full Name" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -91,7 +92,7 @@ const Page = () => {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="email" {...field} />
+                    <Input placeholder="Email" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -104,24 +105,26 @@ const Page = () => {
                 <FormItem>
                   <FormLabel>Password</FormLabel>
                   <FormControl>
-                    <Input type="password" placeholder="password" {...field} />
+                    <Input type="password" placeholder="Password" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button type="submit" className="font-semibold text-sm bg-white text-black hover:bg-gray-400" disabled={isSubmitting}>
+            <Button
+              type="submit"
+              className="w-full font-semibold bg-white text-black hover:bg-gray-400"
+              disabled={isSubmitting}
+            >
               {isSubmitting ? (
-                <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                </>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               ) : (
                 "Sign-up"
               )}
             </Button>
           </form>
         </Form>
-        <div className="text-center mt-4">
+        <div className="text-center">
           <p>
             Already have an account?{" "}
             <Link href="/sign-in" className="text-blue-600 hover:text-blue-800">
@@ -130,15 +133,15 @@ const Page = () => {
           </p>
         </div>
       </div>
-    </div>
-    <div>
-      <img src="https://c8.alamy.com/comp/2C76HXE/thin-line-blue-icon-of-the-best-place-for-remote-work-young-woman-is-working-outsourced-lat-design-vector-illustration-ready-to-animation-vector-co-2C76HXE.jpg"
-      className="w-[400px] h-[400px] rounded-md"
-      alt="Signup-Image" />
-    </div>
+      <div className="mt-8 md:mt-0 md:ml-8">
+        <img
+          src="https://c8.alamy.com/comp/2C76HXE/thin-line-blue-icon-of-the-best-place-for-remote-work-young-woman-is-working-outsourced-lat-design-vector-illustration-ready-to-animation-vector-co-2C76HXE.jpg"
+          className="w-[300px] md:w-[400px] rounded-md"
+          alt="Signup-Image"
+        />
+      </div>
     </div>
   );
 };
 
 export default Page;
-

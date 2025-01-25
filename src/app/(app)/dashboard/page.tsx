@@ -61,10 +61,10 @@ const DashboardPage = () => {
   const fullname = session.user.fullname || "User";
 
   return (
-    <div className="py-4 px-20 md:mx-8 lg:mx-auto p-6 w-full bg-black text-white h-[100%]">
-      <h1 className="text-3xl font-semibold mb-4">User Dashboard</h1>
+    <div className="py-4 px-6 md:px-10 lg:px-20  lg:mx-auto p-6 w-full bg-black text-white h-full">
+      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-4">User Dashboard</h1>
       <div className="mb-4">
-        <h3 className="text-xl font-semibold my-3">Welcome, {fullname}</h3>
+        <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold my-3">Welcome, {fullname}</h3>
         <Button
           className="mt-4"
           variant="outline"
@@ -79,7 +79,7 @@ const DashboardPage = () => {
             <RefreshCcw className="h-4 w-4 text-black" />
           )}
         </Button>
-        <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {diseases.length > 0 ? (
             diseases.map((disease, index) => (
               <HealthCard key={index} disease={disease} />

@@ -1,10 +1,8 @@
-// Import `GoogleGenerative` from the package we installed earlier.
 import dbConnect from "@/lib/dbConnect";
 import UserModel, { HealthVitals } from "@/models/User";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-// Create an asynchronous function POST to handle POST
-// request with parameters request and response.
+
 export async function POST(req: Request) {
   await dbConnect();
   try {
@@ -54,11 +52,8 @@ export async function POST(req: Request) {
 
     // Pass the prompt to the model and retrieve the output
     const result = await model.generateContent(prompt);
-    console.log(result);
-    const response = await result.response;
-    console.log(response);
-    const output = await response.text();
-    console.log(output);
+    const response = result.response;
+    const output = response.text().toString().replace("**", "\n");
 
     // Prepare new health details to store
     const newDetails = {
