@@ -15,6 +15,7 @@ interface HealthFormData {
   weight: number;
   cholesterol: string;
   location: string;
+  description: string;
 }
 
 const HealthDetailsForm: React.FC = () => {
@@ -31,6 +32,7 @@ const HealthDetailsForm: React.FC = () => {
     weight: 0,
     cholesterol: "",
     location: "",
+    description: "",
   });
 
   const [responseMessage, setResponseMessage] = useState<string>("");
@@ -247,6 +249,20 @@ const HealthDetailsForm: React.FC = () => {
               type="text"
               name="location"
               placeholder="Location"
+              onChange={handleChange}
+              required
+              className="w-full border border-gray-700 bg-transparent py-2 px-4 mt-2 rounded"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="description" className="font-bold text-lg">
+              Description
+            </label>
+            <input
+              type="text"
+              name="description"
+              placeholder="Enter what you feel?"
               onChange={handleChange}
               required
               className="w-full border border-gray-700 bg-transparent py-2 px-4 mt-2 rounded"

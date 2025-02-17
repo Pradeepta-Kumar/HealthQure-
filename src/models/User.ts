@@ -12,6 +12,7 @@ export interface HealthVitals extends Document {
   weight: number;
   cholesterol: number;
   location: string;
+  description?: string;
   result?: string;
   createdAt: Date;
 }
@@ -58,6 +59,10 @@ const HealthSchema: Schema<HealthVitals> = new Schema({
     required: [true, "Cholesterol is required"],
   },
   location: String,
+  description: {
+    type: String,
+    default: "",
+  },
   result: {
     type: String,
     default: "",

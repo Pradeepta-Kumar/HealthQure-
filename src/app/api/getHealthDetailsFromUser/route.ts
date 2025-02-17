@@ -24,6 +24,7 @@ export async function POST(req: Request) {
       weight,
       cholesterol,
       location,
+      description,
     } = await req.json();
 
     // Retrieve the user from the database using the email
@@ -47,7 +48,8 @@ export async function POST(req: Request) {
         Blood Glucose: ${bloodGlucose}, 
         Weight: ${weight}, 
         Cholesterol: ${cholesterol},
-        Location: ${location}. 
+        Location: ${location},
+        Description: ${description}. 
         Please Find out the accurate diseases along with the proper medicines available easily in affordable rates and suggest the type of foods to be consumed with the appropriate nutrient amounts also find all the hospitals present nearby the ${location}.`;
 
     // Pass the prompt to the model and retrieve the output
@@ -68,6 +70,7 @@ export async function POST(req: Request) {
       weight,
       cholesterol,
       location,
+      description,
       createdAt: new Date(),
       result: output,
     };

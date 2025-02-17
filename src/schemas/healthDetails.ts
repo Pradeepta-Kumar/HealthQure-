@@ -13,6 +13,7 @@ export const healthDetailsSchema = z.object({
     weight: z.number(),
     cholesterol: z.number(),
     location:z.string(),
+    description: z.string(),
     result: z.string(),
     createdAt: z.date(),
 });

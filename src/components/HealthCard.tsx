@@ -50,7 +50,13 @@ const HealthCard = ({ disease }: HealthCardProps) => {
           Cholesterol: {disease.cholesterol}
         </CardDescription>
         <CardDescription className="font-semibold text-black">
-          Result: {disease.result}
+          Location: {disease.location}
+        </CardDescription>
+        <CardDescription className="font-semibold text-black">
+          Description: {disease.description}
+        </CardDescription>
+        <CardDescription className="font-semibold text-black">
+          Result: {disease.result?.split("*").join("\n")}
         </CardDescription>
       </CardHeader>
       <CardContent>{/* <p>Card content</p> */}</CardContent>
